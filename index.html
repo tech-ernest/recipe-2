@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f0f0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="EP">
+<title>EP — Meal Planner</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===================== RECIPES PAGE ===================== -->
+  <div id="page-recipes" class="page active">
+    <div class="top-bar">
+      <h1>Recipes</h1>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all" onclick="App.renderRecipeGrid('all')">All</button>
+      <button class="filter-tab" data-filter="breakfast" onclick="App.renderRecipeGrid('breakfast')">Breakfast</button>
+      <button class="filter-tab" data-filter="lunch" onclick="App.renderRecipeGrid('lunch')">Lunch</button>
+      <button class="filter-tab" data-filter="dinner" onclick="App.renderRecipeGrid('dinner')">Dinner</button>
+    </div>
+    <div class="content">
+      <div class="recipe-grid" id="recipe-grid"></div>
+    </div>
+  </div>
+
+  <!-- ===================== PLANNER PAGE ===================== -->
+  <div id="page-planner" class="page">
+    <div class="top-bar">
+      <h1>This week</h1>
+      <button class="top-bar-action" onclick="Grocery.generate(); App.showPage('grocery')">→ Grocery list</button>
+    </div>
+    <div class="content">
+      <div class="planner-week" id="planner-week"></div>
+    </div>
+  </div>
+
+  <!-- ===================== GROCERY PAGE ===================== -->
+  <div id="page-grocery" class="page">
+    <div class="top-bar">
+      <h1>Groceries</h1>
+      <button class="top-bar-action" onclick="Grocery.generate()">Regenerate</button>
+    </div>
+    <div class="grocery-header-bar">
+      <span class="grocery-summary" id="grocery-summary"></span>
+      <div class="grocery-actions">
+        <button class="ghost-btn" onclick="Grocery.clearChecked()">Clear ticked</button>
+        <button class="ghost-btn danger" onclick="Grocery.clearAll()">Clear all</button>
+      </div>
+    </div>
+    <div class="content">
+      <div class="grocery-list" id="grocery-list"></div>
+    </div>
+    <div class="add-item-row">
+      <input class="add-item-input" id="grocery-add-input" type="text" placeholder="Add item manually…"
+        onkeydown="if(event.key==='Enter') Grocery.addManualItem()">
+      <button class="add-item-btn" onclick="Grocery.addManualItem()">Add</button>
+    </div>
+  </div>
+
+  <!-- ===================== SETTINGS PAGE ===================== -->
+  <div id="page-settings" class="page">
+    <div class="top-bar">
+      <h1>Settings</h1>
+    </div>
+    <div class="content">
+      <div class="settings-list">
+        <div class="settings-section-title">Preferences</div>
+        <div class="card">
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Default servings</div>
+              <div class="settings-row-sub">Applied when adding a recipe to the planner</div>
+            </div>
+            <div class="settings-stepper">
+              <button onclick="Settings.changeDefaultServes(-1)">−</button>
+              <span id="settings-default-serves">2</span>
+              <button onclick="Settings.changeDefaultServes(1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section-title" style="margin-top:8px;">Library</div>
+        <div class="card">
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Total recipes</div>
+            </div>
+            <div style="font-size:15px;font-weight:600;color:var(--text-primary)" id="settings-recipe-count">0</div>
+          </div>
+        </div>
+
+        <div class="settings-section-title" style="margin-top:8px;">Data</div>
+        <div class="card">
+          <div class="settings-row" style="cursor:pointer" onclick="if(confirm('Clear all planner and grocery data?')){localStorage.removeItem('ep_planner');localStorage.removeItem('ep_grocery');alert('Cleared.');}">
+            <div>
+              <div class="settings-row-label" style="color:var(--red-text)">Reset planner & grocery data</div>
+              <div class="settings-row-sub">Keeps your settings</div>
+            </div>
+            <span style="color:var(--text-muted);font-size:18px;">›</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== BOTTOM NAV ===================== -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-page="recipes">
+      <span class="nav-icon">📖</span>
+      <span class="nav-label">Recipes</span>
+    </button>
+    <button class="nav-item" data-page="planner">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">Planner</span>
+    </button>
+    <button class="nav-item" data-page="grocery">
+      <span class="nav-icon">🛒</span>
+      <span class="nav-label">Grocery</span>
+    </button>
+    <button class="nav-item" data-page="settings">
+      <span class="nav-icon">⚙️</span>
+      <span class="nav-label">Settings</span>
+    </button>
+  </nav>
+
+  <!-- ===================== RECIPE DETAIL (slide-in) ===================== -->
+  <div id="detail-view" class="detail-view">
+    <div class="detail-hero">
+      <img id="detail-img" src="" alt="">
+      <button class="back-btn" onclick="App.closeRecipe()">‹</button>
+      <div class="detail-hero-overlay">
+        <h2 id="detail-title"></h2>
+        <div class="badges" id="detail-badges"></div>
+      </div>
+    </div>
+
+    <div class="detail-meta">
+      <div class="detail-meta-card"><div class="dmc-label">Prep</div><div class="dmc-value" id="detail-prep"></div><div class="dmc-unit">min</div></div>
+      <div class="detail-meta-card"><div class="dmc-label">Cook</div><div class="dmc-value" id="detail-cook"></div><div class="dmc-unit">min</div></div>
+      <div class="detail-meta-card"><div class="dmc-label">Serves</div><div class="dmc-value" id="detail-serves-display"></div><div class="dmc-unit">people</div></div>
+      <div class="detail-meta-card"><div class="dmc-label">Calories</div><div class="dmc-value" id="detail-cal"></div><div class="dmc-unit">kcal</div></div>
+    </div>
+
+    <div class="detail-tabs">
+      <button class="detail-tab" data-tab="ingredients" onclick="App.switchDetailTab('ingredients')">Ingredients</button>
+      <button class="detail-tab" data-tab="method" onclick="App.switchDetailTab('method')">Method</button>
+      <button class="detail-tab" data-tab="nutrition" onclick="App.switchDetailTab('nutrition')">Nutrition</button>
+      <button class="detail-tab" data-tab="subs" onclick="App.switchDetailTab('subs')">Substitutions</button>
+    </div>
+
+    <div class="detail-content">
+
+      <!-- Ingredients tab -->
+      <div class="detail-panel" id="dtab-ingredients">
+        <div class="panel-header">
+          <span class="panel-title">Ingredients</span>
+          <div class="servings-control">
+            <button onclick="App.changeDetailServings(-1)">−</button>
+            <span class="servings-num" id="detail-servings-num">4</span>
+            <button onclick="App.changeDetailServings(1)">+</button>
+          </div>
+        </div>
+        <div class="card"></div>
+      </div>
+
+      <!-- Method tab -->
+      <div class="detail-panel" id="dtab-method">
+        <div class="card">
+          <div class="cook-bar">
+            <span class="cook-label">Cook mode — keeps screen on</span>
+            <div class="toggle" id="detail-cook-toggle" onclick="App.toggleCookMode()"><div class="toggle-knob"></div></div>
+          </div>
+          <div class="progress-wrap"><div class="progress-bar" id="detail-progress" style="width:0%"></div></div>
+          <div id="detail-step-list"></div>
+        </div>
+      </div>
+
+      <!-- Nutrition tab -->
+      <div class="detail-panel" id="dtab-nutrition">
+        <div class="card">
+          <div style="padding:10px 14px 4px;font-size:12px;color:var(--text-muted)">Per serving · estimates only</div>
+          <div class="nut-grid" id="detail-nut-grid"></div>
+        </div>
+      </div>
+
+      <!-- Substitutions tab -->
+      <div class="detail-panel" id="dtab-subs">
+        <div class="card"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== BOTTOM SHEET (recipe picker) ===================== -->
+  <div id="sheet-overlay" class="sheet-overlay" onclick="Planner.closePicker()"></div>
+  <div id="bottom-sheet" class="bottom-sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title" id="sheet-title">Add meal</div>
+    <div class="sheet-list" id="sheet-list"></div>
+  </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="data/recipes.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/grocery.js"></script>
+<script src="js/planner.js"></script>
+<script src="js/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js')
+  App.init()
+</script>
+</body>
+</html>
