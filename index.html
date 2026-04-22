@@ -45,7 +45,10 @@
   <!-- ===================== GROCERY PAGE ===================== -->
   <div id="page-grocery" class="page">
     <div class="top-bar">
-      <h1>Groceries</h1>
+      <div class="top-bar-left">
+        <button class="top-bar-back" onclick="App.showPage('planner')">‹</button>
+        <h1>Groceries</h1>
+      </div>
       <button class="top-bar-action" onclick="Grocery.generate()">Regenerate</button>
     </div>
     <div class="grocery-header-bar">

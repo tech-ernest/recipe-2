@@ -29,7 +29,7 @@
 
 html, body {
   height: 100%;
-  background: var(--bg);
+  background: #080808;
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow: hidden;
@@ -45,6 +45,7 @@ html, body {
   max-width: 600px;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
 }
 
 /* =====================
@@ -64,6 +65,24 @@ html, body {
   font-size: 17px;
   font-weight: 600;
   color: var(--text-primary);
+}
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.top-bar-back {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px 4px 0;
+  display: flex;
+  align-items: center;
+  min-width: 32px;
+  min-height: 44px;
 }
 .top-bar-action {
   font-size: 13px;
@@ -98,6 +117,8 @@ html, body {
   background: none;
   color: var(--text-muted);
   transition: color 0.15s;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
 }
 .nav-item.active { color: var(--green-text); }
 .nav-icon { font-size: 20px; line-height: 1; }
@@ -115,8 +136,8 @@ html, body {
 /* =====================
    PAGES
    ===================== */
-.page { display: none; height: 100%; }
-.page.active { display: flex; flex-direction: column; }
+.page { display: none; }
+.page.active { display: flex; flex-direction: column; flex: 1; min-height: 0; }
 
 /* =====================
    RECIPE CARDS (list)
@@ -133,7 +154,7 @@ html, body {
 }
 .filter-tabs::-webkit-scrollbar { display: none; }
 .filter-tab {
-  padding: 5px 14px;
+  padding: 7px 14px;
   border-radius: 20px;
   font-size: 13px;
   font-weight: 500;
@@ -143,6 +164,7 @@ html, body {
   color: var(--text-secondary);
   white-space: nowrap;
   transition: all 0.15s;
+  min-height: 36px;
 }
 .filter-tab.active {
   background: var(--green-bg);
@@ -192,8 +214,8 @@ html, body {
   inset: 0;
   background: var(--bg);
   z-index: 10;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
+  visibility: hidden;
+  pointer-events: none;
 }
 .back-btn {
   position: absolute; top: calc(var(--safe-top) + 10px); left: 12px;
@@ -204,8 +226,8 @@ html, body {
   z-index: 20; pointer-events: auto;
 }
 .detail-view.open {
-  display: flex;
-  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 .detail-hero { position: relative; flex-shrink: 0; height: 200px; overflow: hidden; background: #111; }
 .detail-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; pointer-events: none; }
@@ -269,7 +291,7 @@ html, body {
 .card { background: var(--bg-card); border-radius: 12px; border: 0.5px solid var(--border); overflow: hidden; margin-bottom: 12px; }
 .ingredient-group { padding: 10px 14px; }
 .ig-title { font-size: 11px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-.ing-item { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; border-bottom: 0.5px solid var(--border); cursor: pointer; }
+.ing-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--border); cursor: pointer; min-height: 44px; }
 .ing-item:last-child { border-bottom: none; }
 .ing-item.checked { opacity: 0.35; }
 .ing-item.checked .ing-name { text-decoration: line-through; }
@@ -293,7 +315,7 @@ html, body {
 .toggle.on .toggle-knob { left: 20px; background: white; }
 .progress-wrap { height: 3px; background: var(--bg-secondary); }
 .progress-bar { height: 3px; background: var(--green); transition: width 0.3s; }
-.step-item { display: flex; gap: 12px; padding: 12px 14px; border-bottom: 0.5px solid var(--border); cursor: pointer; }
+.step-item { display: flex; gap: 12px; padding: 14px; border-bottom: 0.5px solid var(--border); cursor: pointer; min-height: 44px; }
 .step-item:last-child { border-bottom: none; }
 .step-item.done { opacity: 0.4; }
 .step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--green-bg); color: var(--green-text); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -401,7 +423,7 @@ html, body {
 
 .grocery-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; }
 .grocery-section-title { font-size: 12px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-.grocery-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 0.5px solid var(--border); cursor: pointer; }
+.grocery-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 0.5px solid var(--border); cursor: pointer; min-height: 44px; }
 .grocery-item:last-child { border-bottom: none; }
 .grocery-item.checked { opacity: 0.4; }
 .grocery-item.checked .grocery-item-name { text-decoration: line-through; }
@@ -415,7 +437,7 @@ html, body {
 .add-item-row { display: flex; gap: 8px; padding: 10px 16px; border-top: 0.5px solid var(--border); flex-shrink: 0; }
 .add-item-input {
   flex: 1; background: var(--bg-secondary); border: 0.5px solid var(--border-md);
-  border-radius: 8px; padding: 8px 12px; color: var(--text-primary); font-size: 14px;
+  border-radius: 8px; padding: 10px 12px; color: var(--text-primary); font-size: 16px;
 }
 .add-item-input::placeholder { color: var(--text-muted); }
 .add-item-btn {
@@ -451,3 +473,20 @@ html, body {
 .badge-green { background: rgba(14,46,34,0.92); color: #4dd4a0; border: 0.5px solid rgba(77,212,160,0.3); }
 .badge-amber { background: rgba(42,31,10,0.92); color: #d4924a; border: 0.5px solid rgba(212,146,74,0.3); }
 .badge-teal { background: rgba(10,36,32,0.92); color: #3dc9a0; border: 0.5px solid rgba(61,201,160,0.3); }
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+/* Single-column cards on very narrow phones */
+@media (max-width: 340px) {
+  .recipe-grid { grid-template-columns: 1fr; }
+}
+
+/* Desktop: give the gutters a subtle border so the app looks framed */
+@media (min-width: 600px) {
+  .app {
+    border-left: 0.5px solid var(--border);
+    border-right: 0.5px solid var(--border);
+  }
+}
