@@ -130,7 +130,8 @@ html, body {
 .content {
   flex: 1;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: auto;
 }
 
 /* =====================
@@ -423,7 +424,7 @@ html, body {
 
 .grocery-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; }
 .grocery-section-title { font-size: 12px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-.grocery-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 0.5px solid var(--border); cursor: pointer; min-height: 44px; }
+.grocery-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 0.5px solid var(--border); cursor: pointer; min-height: 44px; touch-action: manipulation; }
 .grocery-item:last-child { border-bottom: none; }
 .grocery-item.checked { opacity: 0.4; }
 .grocery-item.checked .grocery-item-name { text-decoration: line-through; }

@@ -101,7 +101,7 @@ const Grocery = (() => {
 
     if (fresh.length) {
       html += `<div><div class="grocery-section-title">Fresh</div><div class="card">`
-      fresh.forEach((item, i) => { html += groceryItemHtml(item, 'items', i) })
+      fresh.forEach((item) => { html += groceryItemHtml(item, 'items', data.items.indexOf(item)) })
       html += '</div></div>'
     }
 
