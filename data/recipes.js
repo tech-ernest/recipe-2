@@ -295,7 +295,7 @@ const recipes = [
     cookTime: 0,
     serves: 1,
     tags: ['vegetarian', 'gluten-free'],
-    image: 'https://images.unsplash.com/photo-1488477181228-c84af5765a5e?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=600&q=80',
     ingredients: [
       {
         group: null,
