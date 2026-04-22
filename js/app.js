@@ -17,6 +17,8 @@ const App = (() => {
     renderNav()
     showPage('recipes')
     renderRecipeGrid('all')
+    window.addEventListener('popstate', () => {  // ADD THIS
+    if (currentRecipe) closeRecipe()
   }
 
   /* ---------- NAVIGATION ---------- */
@@ -84,27 +86,28 @@ const App = (() => {
   }
 
   /* ---------- RECIPE DETAIL ---------- */
-  function openRecipe(id) {
-    const recipe = recipes.find(r => r.id === id)
-    if (!recipe) return
-    currentRecipe = recipe
-    detailServings = recipe.serves
-    detailCheckedIng = new Set()
-    detailCheckedSteps = new Set()
+function openRecipe(id) {
+  const recipe = recipes.find(r => r.id === id)
+  if (!recipe) return
+  currentRecipe = recipe
+  detailServings = recipe.serves
+  detailCheckedIng = new Set()
+  detailCheckedSteps = new Set()
 
-    const view = document.getElementById('detail-view')
-    view.classList.add('open')
+  const view = document.getElementById('detail-view')
+  view.classList.add('open')
+  history.pushState({ detail: id }, '', '')  // ADD THIS LINE
 
-    renderDetailHero(recipe)
-    renderDetailMeta(recipe)
-    switchDetailTab('ingredients')
-  }
+  renderDetailHero(recipe)
+  renderDetailMeta(recipe)
+  switchDetailTab('ingredients')
+}
    
-   function closeRecipe() {
-    const view = document.getElementById('detail-view')
-    view.classList.remove('open')
-    currentRecipe = null
-    if (detailWakeLock) { detailWakeLock.release().catch(() => {}); detailWakeLock = null }
+function closeRecipe() {
+  const view = document.getElementById('detail-view')
+  view.classList.remove('open')
+  currentRecipe = null
+  if (detailWakeLock) { detailWakeLock.release().catch(() => {}); detailWakeLock = null }
 }
 
   function renderDetailHero(recipe) {
