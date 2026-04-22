@@ -99,13 +99,13 @@ const App = (() => {
     renderDetailMeta(recipe)
     switchDetailTab('ingredients')
   }
-
-  function closeRecipe() {
+   
+   function closeRecipe() {
     const view = document.getElementById('detail-view')
     view.classList.remove('open')
     currentRecipe = null
     if (detailWakeLock) { detailWakeLock.release().catch(() => {}); detailWakeLock = null }
-  }
+}
 
   function renderDetailHero(recipe) {
     document.getElementById('detail-img').src = recipe.image
