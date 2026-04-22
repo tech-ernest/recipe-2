@@ -13,7 +13,7 @@ const Macros = (() => {
 
   function aggregateDay(dayKey, meals) {
     const t = { calories: 0, protein: 0, carbs: 0, fat: 0 }
-    ;['breakfast','lunch','dinner'].forEach(mt => {
+    ;['breakfast','lunch','dinner','snack'].forEach(mt => {
       const meal = meals[`${dayKey}-${mt}`]
       if (!meal) return
       const r = recipes.find(r => r.id === meal.recipeId)

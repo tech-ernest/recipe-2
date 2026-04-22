@@ -6,7 +6,7 @@ const Planner = (() => {
 
   const DAYS = ['mon','tue','wed','thu','fri','sat','sun']
   const DAY_NAMES = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
-  const MEAL_TYPES = ['breakfast','lunch','dinner']
+  const MEAL_TYPES = ['breakfast','lunch','dinner','snack']
 
   let activeSlot = null  // { day, mealType }
 

@@ -283,6 +283,146 @@ const recipes = [
         { name: 'Beef stock', swap: '<em>Vegetable stock</em> works fine.' },
       ]}
     ]
-  }
+  },
+
+  /* ==================== SNACKS ==================== */
+
+  {
+    id: 'greek-yogurt-parfait',
+    title: 'Greek yogurt parfait',
+    category: 'snack',
+    prepTime: 5,
+    cookTime: 0,
+    serves: 1,
+    tags: ['vegetarian', 'gluten-free'],
+    image: 'https://images.unsplash.com/photo-1488477181228-c84af5765a5e?w=600&q=80',
+    ingredients: [
+      {
+        group: null,
+        items: [
+          { id: 'greek-yogurt', name: 'Greek yogurt', amount: 150, unit: 'g', type: 'fresh', note: 'full-fat or low-fat' },
+          { id: 'granola', name: 'Granola', amount: 30, unit: 'g', type: 'pantry', note: '' },
+          { id: 'mixed-berries', name: 'Mixed berries', amount: 60, unit: 'g', type: 'fresh', note: 'fresh or frozen, defrosted' },
+          { id: 'honey', name: 'Honey', amount: 1, unit: 'tsp', type: 'pantry', note: '' },
+        ]
+      }
+    ],
+    steps: [
+      'Spoon the Greek yogurt into a glass or bowl.',
+      'Top with granola and mixed berries.',
+      'Drizzle with honey and serve immediately.',
+    ],
+    nutrition: { calories: 220, protein: 16, carbs: 28, fat: 4, fibre: 2, sugar: 18, satFat: 1, sodium: 60 },
+    subs: [
+      { group: null, items: [
+        { name: 'Greek yogurt', swap: '<em>Skyr</em> for extra protein, or any plain yogurt.' },
+        { name: 'Honey', swap: '<em>Maple syrup</em> or agave to keep it vegan.' },
+        { name: 'Granola', swap: '<em>Muesli</em> or crushed nuts for lower carbs.' },
+      ]}
+    ]
+  },
+
+  {
+    id: 'apple-peanut-butter',
+    title: 'Apple & peanut butter',
+    category: 'snack',
+    prepTime: 3,
+    cookTime: 0,
+    serves: 1,
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    image: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=80',
+    ingredients: [
+      {
+        group: null,
+        items: [
+          { id: 'apple', name: 'Apple', amount: 1, unit: '', type: 'fresh', note: 'any variety' },
+          { id: 'peanut-butter', name: 'Peanut butter', amount: 2, unit: 'tbsp', type: 'pantry', note: 'smooth or crunchy' },
+          { id: 'cinnamon', name: 'Ground cinnamon', amount: 0, unit: '', type: 'pantry', note: 'optional, to serve' },
+        ]
+      }
+    ],
+    steps: [
+      'Core the apple and slice into wedges.',
+      'Spoon peanut butter into a small bowl for dipping.',
+      'Dust with a pinch of cinnamon if using and serve.',
+    ],
+    nutrition: { calories: 215, protein: 6, carbs: 26, fat: 11, fibre: 4, sugar: 18, satFat: 2, sodium: 55 },
+    subs: [
+      { group: null, items: [
+        { name: 'Peanut butter', swap: '<em>Almond butter</em> or <em>cashew butter</em> work equally well.' },
+        { name: 'Apple', swap: '<em>Celery sticks</em> or <em>banana</em> for variety.' },
+      ]}
+    ]
+  },
+
+  {
+    id: 'hummus-veggie-sticks',
+    title: 'Hummus & veggie sticks',
+    category: 'snack',
+    prepTime: 5,
+    cookTime: 0,
+    serves: 2,
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    image: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&q=80',
+    ingredients: [
+      {
+        group: null,
+        items: [
+          { id: 'hummus', name: 'Hummus', amount: 150, unit: 'g', type: 'pantry', note: 'shop-bought or homemade' },
+          { id: 'carrots', name: 'Carrots', amount: 2, unit: '', type: 'fresh', note: 'cut into sticks' },
+          { id: 'cucumber', name: 'Cucumber', amount: 0.5, unit: '', type: 'fresh', note: 'cut into sticks' },
+          { id: 'red-pepper', name: 'Red pepper', amount: 1, unit: '', type: 'fresh', note: 'sliced' },
+          { id: 'paprika', name: 'Smoked paprika', amount: 0, unit: '', type: 'pantry', note: 'to garnish' },
+        ]
+      }
+    ],
+    steps: [
+      'Wash and cut the carrots, cucumber, and pepper into even sticks.',
+      'Spoon the hummus into a bowl and dust with smoked paprika.',
+      'Arrange the veggie sticks alongside and serve.',
+    ],
+    nutrition: { calories: 165, protein: 6, carbs: 18, fat: 8, fibre: 5, sugar: 5, satFat: 1, sodium: 290 },
+    subs: [
+      { group: null, items: [
+        { name: 'Hummus', swap: '<em>Tzatziki</em> or <em>baba ganoush</em> as alternatives.' },
+        { name: 'Veggie sticks', swap: 'Use any crunchy veg — <em>celery</em>, <em>radish</em>, <em>sugar snap peas</em>.' },
+      ]}
+    ]
+  },
+
+  {
+    id: 'banana-rice-cakes',
+    title: 'Banana & almond butter rice cakes',
+    category: 'snack',
+    prepTime: 3,
+    cookTime: 0,
+    serves: 1,
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600&q=80',
+    ingredients: [
+      {
+        group: null,
+        items: [
+          { id: 'rice-cakes', name: 'Rice cakes', amount: 2, unit: '', type: 'pantry', note: 'plain or lightly salted' },
+          { id: 'almond-butter', name: 'Almond butter', amount: 2, unit: 'tbsp', type: 'pantry', note: '' },
+          { id: 'banana', name: 'Banana', amount: 1, unit: '', type: 'fresh', note: 'sliced' },
+          { id: 'cinnamon', name: 'Ground cinnamon', amount: 0, unit: '', type: 'pantry', note: 'optional' },
+        ]
+      }
+    ],
+    steps: [
+      'Spread almond butter evenly over each rice cake.',
+      'Top with banana slices.',
+      'Finish with a pinch of cinnamon if using.',
+    ],
+    nutrition: { calories: 230, protein: 6, carbs: 34, fat: 9, fibre: 3, sugar: 14, satFat: 1, sodium: 75 },
+    subs: [
+      { group: null, items: [
+        { name: 'Almond butter', swap: '<em>Peanut butter</em> or <em>sunflower seed butter</em> for nut-free.' },
+        { name: 'Banana', swap: '<em>Sliced strawberries</em> or <em>mango</em> work great.' },
+        { name: 'Rice cakes', swap: '<em>Oat cakes</em> or <em>crispbreads</em>.' },
+      ]}
+    ]
+  },
 
 ]
