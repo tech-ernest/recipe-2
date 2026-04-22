@@ -185,7 +185,7 @@ html, body {
    RECIPE DETAIL VIEW
    ===================== */
 .detail-view {
-  display: none;
+  display: flex;
   flex-direction: column;
   height: 100%;
   position: absolute;
