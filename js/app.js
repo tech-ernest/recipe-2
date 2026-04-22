@@ -44,6 +44,7 @@ const App = (() => {
     if (page === 'planner') Planner.render()
     if (page === 'grocery') Grocery.render()
     if (page === 'settings') Settings.render()
+    if (page === 'macros') Macros.render()
   }
 
   /* ---------- RECIPE GRID ---------- */

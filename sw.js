@@ -1,4 +1,4 @@
-const CACHE = 'ep-v5'
+const CACHE = 'ep-v6'
 const ASSETS = [
   './index.html',
   './manifest.json',
@@ -7,6 +7,7 @@ const ASSETS = [
   './js/planner.js',
   './js/grocery.js',
   './js/settings.js',
+  './js/macros.js',
   './data/recipes.js',
 ]
 
