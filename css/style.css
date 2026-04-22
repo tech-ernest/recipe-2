@@ -214,7 +214,7 @@ html, body {
   width: 32px; height: 32px; border-radius: 50%;
   background: rgba(0,0,0,0.5); border: none; cursor: pointer;
   color: #fff; font-size: 18px; display: flex; align-items: center; justify-content: center;
-  z-index: 11; pointer-events: auto;
+  z-index: 20; pointer-events: auto;
 }
 .detail-meta {
   display: grid; grid-template-columns: repeat(4, 1fr);
