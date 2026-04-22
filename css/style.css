@@ -197,9 +197,10 @@ html, body {
 }
 .back-btn {
   position: absolute; top: calc(var(--safe-top) + 10px); left: 12px;
-  width: 32px; height: 32px; border-radius: 50%;
-  background: rgba(0,0,0,0.5); border: none; cursor: pointer;
-  color: #fff; font-size: 18px; display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(0,0,0,0.6); border: none; cursor: pointer;
+  color: #fff; font-size: 22px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
   z-index: 20; pointer-events: auto;
 }
 .detail-view.open {
