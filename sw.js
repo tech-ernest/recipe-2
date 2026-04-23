@@ -1,4 +1,4 @@
-const CACHE = 'ep-v13'
+const CACHE = 'ep-v14'
 const ASSETS = [
   './index.html',
   './manifest.json',

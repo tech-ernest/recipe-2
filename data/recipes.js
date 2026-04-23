@@ -10,7 +10,7 @@ const recipes = [
     cookTime: 0,
     serves: 1,
     tags: ['vegetarian', 'dairy-free'],
-    image: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1571748982800-fa51082c2224?w=600&q=80',
     ingredients: [
       {
         group: null,
