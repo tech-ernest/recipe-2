@@ -121,7 +121,7 @@
 
         <div class="settings-section-title" style="margin-top:8px;">Data</div>
         <div class="card">
-          <div class="settings-row" style="cursor:pointer" onclick="if(confirm('Clear all planner and grocery data?')){localStorage.removeItem('ep_planner');localStorage.removeItem('ep_grocery');alert('Cleared.');}">
+          <div class="settings-row" style="cursor:pointer" onclick="localStorage.removeItem('ep_planner');localStorage.removeItem('ep_grocery');App.showPage('planner');Planner.render()">
             <div>
               <div class="settings-row-label" style="color:var(--red-text)">Reset planner & grocery data</div>
               <div class="settings-row-sub">Keeps your settings</div>

@@ -133,9 +133,6 @@ const Planner = (() => {
   }
 
   function autoFill() {
-    const meals = loadPlan()
-    if (Object.keys(meals).length > 0 && !confirm('Replace the current plan with a new auto-generated one?')) return
-
     const defaultServes = Settings.getDefaultServes()
     const newMeals = {}
 

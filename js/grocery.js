@@ -159,7 +159,6 @@ const Grocery = (() => {
   }
 
   function clearAll() {
-    if (!confirm('Clear the entire grocery list?')) return
     saveList({ items: [], manualItems: [] })
     render()
   }
