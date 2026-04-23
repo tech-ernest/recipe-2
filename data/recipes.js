@@ -466,7 +466,7 @@ const recipes = [
     cookTime: 8,
     serves: 1,
     tags: ['gluten-free'],
-    image: 'https://images.unsplash.com/photo-1482049016688-2d3e1291311a?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1510693206972-df098062cb71?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'eggs', name: 'Eggs', amount: 4, unit: '', type: 'fresh', note: '' },
       { id: 'sliced-ham', name: 'Sliced ham', amount: 100, unit: 'g', type: 'fresh', note: '' },
@@ -497,7 +497,7 @@ const recipes = [
     cookTime: 5,
     serves: 1,
     tags: [],
-    image: 'https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1743104750646-cfd7a48192ee?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'bagel', name: 'Bagel', amount: 1, unit: '', type: 'fresh', note: 'large, plain or sesame' },
       { id: 'smoked-salmon', name: 'Smoked salmon', amount: 100, unit: 'g', type: 'fresh', note: '' },
@@ -531,7 +531,7 @@ const recipes = [
     cookTime: 5,
     serves: 1,
     tags: ['vegetarian'],
-    image: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'wholegrain-bread', name: 'Wholegrain bread', amount: 2, unit: '', type: 'fresh', note: 'thick slices' },
       { id: 'cottage-cheese', name: 'Full-fat cottage cheese', amount: 150, unit: 'g', type: 'fresh', note: '' },
@@ -600,7 +600,7 @@ const recipes = [
     cookTime: 30,
     serves: 2,
     tags: [],
-    image: 'https://images.unsplash.com/photo-1551183053-bf91798d792e?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1677139599937-4ff6b3747353?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'turkey-mince', name: 'Turkey mince', amount: 500, unit: 'g', type: 'fresh', note: 'lean' },
       { id: 'pasta', name: 'Pasta', amount: 300, unit: 'g', type: 'pantry', note: 'dry — rigatoni or penne' },
@@ -672,7 +672,7 @@ const recipes = [
     cookTime: 45,
     serves: 2,
     tags: ['dairy-free', 'gluten-free'],
-    image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1762154194962-cccc677be031?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'chicken-thighs', name: 'Chicken thighs', amount: 4, unit: '', type: 'fresh', note: 'bone-in, skin-on (~600g)' },
       { id: 'baby-potatoes', name: 'Baby potatoes', amount: 400, unit: 'g', type: 'fresh', note: 'halved' },
@@ -742,7 +742,7 @@ const recipes = [
     cookTime: 25,
     serves: 2,
     tags: ['vegetarian', 'gluten-free'],
-    image: 'https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1520218576172-c1a2df3fa5fc?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'black-beans', name: 'Black beans', amount: 400, unit: 'g', type: 'pantry', note: '1 can, drained and rinsed' },
       { id: 'chopped-tomatoes', name: 'Chopped tomatoes', amount: 400, unit: 'g', type: 'pantry', note: '1 can' },
@@ -818,7 +818,7 @@ const recipes = [
     cookTime: 0,
     serves: 1,
     tags: ['vegetarian', 'gluten-free'],
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1573810655264-8d1e50f1592d?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'cottage-cheese', name: 'Full-fat cottage cheese', amount: 250, unit: 'g', type: 'fresh', note: '' },
       { id: 'almonds', name: 'Almonds', amount: 20, unit: 'g', type: 'pantry', note: '' },
@@ -847,7 +847,7 @@ const recipes = [
     cookTime: 0,
     serves: 1,
     tags: [],
-    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1640282162499-8f7f50cb6129?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'smoked-salmon', name: 'Smoked salmon', amount: 80, unit: 'g', type: 'fresh', note: '' },
       { id: 'cream-cheese', name: 'Full-fat cream cheese', amount: 30, unit: 'g', type: 'fresh', note: '' },
@@ -877,7 +877,7 @@ const recipes = [
     cookTime: 10,
     serves: 1,
     tags: ['vegetarian'],
-    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1680987398307-e1ae27a6ed67?w=600&q=80',
     ingredients: [{ group: null, items: [
       { id: 'eggs', name: 'Eggs', amount: 3, unit: '', type: 'fresh', note: '' },
       { id: 'cheddar', name: 'Mature cheddar', amount: 40, unit: 'g', type: 'fresh', note: '' },
