@@ -36,7 +36,10 @@
   <div id="page-planner" class="page">
     <div class="top-bar">
       <h1>This week</h1>
-      <button class="top-bar-action" onclick="Grocery.generate(); App.showPage('grocery')">→ Grocery list</button>
+      <div class="top-bar-right">
+        <button class="top-bar-action secondary" onclick="Planner.autoFill()">Auto-plan</button>
+        <button class="top-bar-action" onclick="Grocery.generate(); App.showPage('grocery')">→ List</button>
+      </div>
     </div>
     <div class="content">
       <div class="planner-week" id="planner-week"></div>

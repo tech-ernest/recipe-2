@@ -62,6 +62,7 @@ const Planner = (() => {
                 : `<div class="meal-slot-empty">Tap to add</div>`
               }
             </div>
+            ${recipe ? `<button class="meal-slot-shuffle" onclick="Planner.shuffleMeal(event,'${d}','${mt}')">↺</button>` : ''}
             ${recipe ? `<div class="meal-slot-remove" onclick="Planner.removeMeal(event,'${d}','${mt}')">×</div>` : ''}
           </div>`
       }).join('')
@@ -131,10 +132,48 @@ const Planner = (() => {
     render()
   }
 
+  function autoFill() {
+    const meals = loadPlan()
+    if (Object.keys(meals).length > 0 && !confirm('Replace the current plan with a new auto-generated one?')) return
+
+    const defaultServes = Settings.getDefaultServes()
+    const newMeals = {}
+
+    MEAL_TYPES.forEach(mt => {
+      const pool = recipes.filter(r => r.category === mt)
+      if (pool.length === 0) return
+      const shuffled = [...pool].sort(() => Math.random() - 0.5)
+      DAYS.forEach((day, i) => {
+        newMeals[`${day}-${mt}`] = { recipeId: shuffled[i % shuffled.length].id, serves: defaultServes }
+      })
+    })
+
+    savePlan(newMeals)
+    render()
+  }
+
+  function shuffleMeal(event, day, mealType) {
+    event.stopPropagation()
+    const meals = loadPlan()
+    const pool = recipes.filter(r => r.category === mealType)
+    if (pool.length <= 1) return
+
+    const usedIds = new Set(DAYS.map(d => meals[`${d}-${mealType}`]?.recipeId).filter(Boolean))
+    const current = meals[`${day}-${mealType}`]?.recipeId
+    let candidates = pool.filter(r => !usedIds.has(r.id))
+    if (candidates.length === 0) candidates = pool.filter(r => r.id !== current)
+    if (candidates.length === 0) return
+
+    const pick = candidates[Math.floor(Math.random() * candidates.length)]
+    meals[`${day}-${mealType}`] = { recipeId: pick.id, serves: Settings.getDefaultServes() }
+    savePlan(meals)
+    render()
+  }
+
   function getMealsForWeek() {
     return loadPlan()
   }
 
-  return { render, openPicker, closePicker, selectRecipe, removeMeal, getMealsForWeek }
+  return { render, openPicker, closePicker, selectRecipe, removeMeal, autoFill, shuffleMeal, getMealsForWeek }
 
 })()
